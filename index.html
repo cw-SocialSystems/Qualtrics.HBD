@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <style>
+
+      body {
+        background-color: white;
+        height: 100%;
+        max-width: 100%;
+      }
+
+      h1,p {color: black;
+            font-family: 'Karla', sans-serif;
+      }
+
+
+      .feature {
+        width: 80%;
+        margin-left: 10%
+
+      }
+
+      .whitespace{
+        height: 200px;
+        width: 100%;
+        background-color: white;
+      }
+
+      .caption {
+          /* change text align and float to specify right or left*/
+          /*also change width */
+          font-family: 'Karla', sans-serif;
+          font-size: 12px;
+          opacity: 0.7;
+          margin: 0px;
+      }
+
+      .sliderRate{
+          -webkit-appearance: none;
+          width: 100%;
+          height: 25;
+          background: #d3d3d3;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: 0.2s;
+          transition: opacity 0.2s;
+      }
+
+      .sliderRate:hover{
+          opacity: 1;
+      }
+
+      .sliderRate::-webkit-slider-thumb{
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          outline: none;
+          background: #f44336;
+          cursor: pointer;
+          transition: opacity 0.2s;
+      }
+
+      /* The Modal (background) */
+      .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content/Box */
+      .modal-content {
+          background-color: white;
+          margin: 15% auto; /* 15% from the top and centered */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 900px;
+      }
+
+      .btn-group button {
+        background-color: #f44336; /* Green background */
+        border: none;
+        color: white; /* White text */
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: center; /* Float the buttons side by side */
+        opacity: 0.85;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        font-size: 12px;
+      }
+
+      /* Clear floats (clearfix hack) */
+      .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      /* Add a background color on hover */
+      .btn-group button:hover {
+        opacity: 1;
+      }
+
+    </style>
+  </head>
+<body>
+
+  <!--Features-->
+
+  <!-- Rate -->
+  <div class="feature">
+     <p style="line-height:26px;">We can change the speed of the song! Click below button to play/pause. </p>
+
+     <!-- Uncomment to use slider
+     <input type="range" min="30" max="300" value="165" class="sliderRate" id="rate">
+     <div class="caption" style="float: left; width: 6%; color:#f44336;"> slower</div>
+     <div class="caption" style="float: right; text-align: right; width: 6%; color:#f44336;"> faster </div>
+     <div class="whitespace" style="height:50px"></div>
+      -->
+     <div class="btn-group" style="margin-left: 35%">
+      <button onclick="togglePlay()" style="background-color: #575d66; height: 35px;"><img src="icons/play.png" width=25px></button>
+     </div>
+
+     <div class="whitespace" style="height:10px"></div>
+     <p style="line-height:26px;">Click the buttons below to change the speed. </p>
+
+     <div class="btn-group">
+      <button onclick="changeSpeed(-2)" style="width:20%"> even slower </button>
+      <button onclick="changeSpeed(-1)" style="width:20%"> slower </button>
+      <button onclick="changeSpeed(1)" style="width:20%"> faster </button>
+      <button onclick="changeSpeed(2)" style="width:20%"> even faster </button>
+     </div>
+
+     <div class="whitespace" style="height:10px"></div>
+     <p style="line-height:26px;">When you're happy with the rate of the song, click submit. </p>
+     <div class="btn-group" style="margin-left: 35%">
+      <button onclick="submit()" style="background-color: #575d66; height: 35px;">submit</button>
+     </div>
+
+   </div>
+
+   <div id="submit" class="modal">
+     <div class="modal-content">
+         <p style="text-align: center">Great! Copy this code and paste it back into the qualtrics survey: <br><br>
+           <p id="code" style="text-align: center"></p>
+         </p>
+     </div>
+   </div>
+
+   <script src="scripts/midi/inc/shim/Base64.js" type="text/javascript"></script>
+   <script src="scripts/midi/inc/shim/Base64binary.js" type="text/javascript"></script>
+   <script src="scripts/midi/inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+
+   <script src="scripts/midi/MIDI.js"></script>
+
+   <script src="scripts/speed.js"></script>
+
+
+</body>
+</html>
