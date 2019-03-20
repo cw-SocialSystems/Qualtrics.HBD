@@ -4,7 +4,6 @@
 // timeSig of 0 means 3/4; timeSig of 1+ means 4/4
 
 var timeSig = Math.floor(Math.random() * 2);
-alert(timeSig)
 
 if (timeSig < 1) {
 
